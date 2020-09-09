@@ -42,7 +42,7 @@ parse_args() {
   if [ -e ".env" ]; then
     source .env
   fi
-  # 
+  #
   check_version_lang
   # Parse arg flags
   # If something is exposed as an environment variable, set/overwrite it
@@ -99,7 +99,7 @@ check_version_lang() {
   #
   language=$(echo $branch | rev | cut -d '_' -f 1 | rev)
   version=$(echo $branch | cut -d '_' -f 1)
-  
+
   if [[ $version =~ ^v[0-9]$ ]] ; then
     version=${version:1}
   else
@@ -162,7 +162,7 @@ main() {
   # fi
 
   # check if deploy_branch exists locally
-  if git show-ref --verify --quiet "refs/heads/$deploy_branch"; then 
+  if git show-ref --verify --quiet "refs/heads/$deploy_branch"; then
     if git ls-remote --exit-code $repo "refs/heads/$deploy_branch" ; then
       # deploy_branch exists in $repo; make sure we have the latest version
 
@@ -228,7 +228,7 @@ commit+push() {
   if [ $GH_TOKEN ]; then
     # deploy by Travis CI
     # add github token
-    repo="https://"$GH_TOKEN"@github.com/huobiapi/docs.git"
+    repo="https://"$GH_TOKEN"@github.com/wangbei1101/docs.git"
     git remote add origin-pages $repo
     git push --quiet origin-pages $deploy_branch
   else
@@ -288,7 +288,7 @@ if [[ -n "$source_only" ]]; then
   echo "source only"
   run_build
 elif [[ -n "$push_only" ]]; then
-  echo "push only"  
+  echo "push only"
   main
 else
   echo "source and push"
