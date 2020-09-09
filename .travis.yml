@@ -7,16 +7,9 @@ rvm:
 
 branches:
   only:
-    - v1_cn
+    - v1_zh-CN
+    - v2_zh-HK
     - v1_en
-    - v2_cn
-    - v2_en
-    - dm_cn
-    - dm_en
-    - coin_margined_swap_cn
-    - coin_margined_swap_en
-    - option_cn
-    - option_en
 
 cache: bundler
 
